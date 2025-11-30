@@ -9,10 +9,10 @@ YOUTUBE_VIDEO_URL = "https://www.googleapis.com/youtube/v3/videos"
 YOUTUBE_CHANNEL_URL = "https://www.googleapis.com/youtube/v3/channels"
 
 # Streamlit App Title
-st.title("YouTube Viral Topics Tool")
+st.title("YouTube Faceless Topics Tool")
 
 # Input Fields
-days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30, value=5)
+days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30, value=7)
 
 # List of broader keywords
 keywords = [
@@ -38,7 +38,7 @@ if st.button("Fetch Data"):
                 "type": "video",
                 "order": "viewCount",
                 "publishedAfter": start_date,
-                "maxResults": 5,
+                "maxResults": 7,
                 "key": API_KEY,
             }
 
@@ -83,12 +83,12 @@ if st.button("Fetch Data"):
             # Collect results
             for video, stat, channel in zip(videos, stats, channels):
                 title = video["snippet"].get("title", "N/A")
-                description = video["snippet"].get("description", "")[:200]
+                description = video["snippet"].get("description", "")[:300]
                 video_url = f"https://www.youtube.com/watch?v={video['id']['videoId']}"
                 views = int(stat["statistics"].get("viewCount", 0))
                 subs = int(channel["statistics"].get("subscriberCount", 0))
 
-                if subs < 7000:  # Only include channels with fewer than 7,000 subscribers
+                if subs < 3000:  # Only include channels with fewer than 3,000 subscribers
                     all_results.append({
                         "Title": title,
                         "Description": description,
@@ -110,7 +110,7 @@ if st.button("Fetch Data"):
                 )
                 st.write("---")
         else:
-            st.warning("No results found for channels with fewer than 7,000 subscribers.")
+            st.warning("No results found for channels with fewer than 3,000 subscribers.")
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
