@@ -16,12 +16,7 @@ days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30
 
 # List of broader keywords
 keywords = [
- "Affair Relationship Stories", "Reddit Update", "Reddit Relationship Advice", "Supernatural Stories", "True Crime Stories", "Historical Mysteries", "Paranormal Content", "Celebrity/Famous People", "Science Explained", "Survival Stories",  "True Crime & Mystery",
-"Reddit Relationship", "Reddit Cheating", "AITA Update", "Open Marriage", "Open Relationship", "X BF Caught", 
-"Stories Cheat", "X GF Reddit", "AskReddit Surviving Infidelity", "GurlCan Reddit", 
-"Cheating Story Actually Happened", "Cheating Story Real", "True Cheating Story", 
-"Reddit Cheating Story", "R/Surviving Infidelity", "Surviving Infidelity", 
-"Reddit Marriage", "Wife Cheated I Can't Forgive", "Reddit AP", "Exposed Wife", 
+ "true crime documentary", "unsolved mysteries", "paranormal caught on camera", "survival stories real", "celebrity mysteries", "science explained simply", "Survival Stories", "Real survival incidents", "Natural disasters", "Rescue missions", "Extreme survival", "Adventure gone wrong", "Death-defying stories", "True Crime Stories", "True Crime & Mystery", "Murder mysteries", "Serial killers", "Unsolved cases", "Crime investigation", "Court cases", "Missing persons", "Crime documentaries", 
 "Cheat Exposed"
 ]
 
