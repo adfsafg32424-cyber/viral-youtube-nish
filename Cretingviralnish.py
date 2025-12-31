@@ -12,11 +12,11 @@ YOUTUBE_CHANNEL_URL = "https://www.googleapis.com/youtube/v3/channels"
 st.title("YouTube Faceless Topics Tool")
 
 # Input Fields
-days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30, value=7)
+days = st.number_input("Enter Days to Search (1-50):", min_value=1, max_value=50, value=5)
 
 # List of broader keywords
 keywords = [
- "true crime documentary", "unsolved mysteries", "paranormal caught on camera", "survival stories real", "celebrity mysteries", "science explained simply", "Survival Stories", "Real survival incidents", "Natural disasters", "Rescue missions", "Extreme survival", "Adventure gone wrong", "Death-defying stories", "True Crime Stories", "True Crime & Mystery", "Murder mysteries", "Serial killers", "Unsolved cases", "Crime investigation", "Court cases", "Missing persons", "Crime documentaries", 
+ "documentary", "mysteries", "paranormal caught on camera", "survival stories", "celebrity mysteries", "science explained simply", "Sports Stories", "Real survival incidents", "Natural disasters", "Rescue missions", "Extreme survival", "Adventure", "Death-defying stories", "Crime Stories", "True Mystery Stories", "Murder mysteries", "Serial killers", "Unsolved Dada", "Crime investigation", "Court cases", "Missing persons", "Crime documentaries", "storytelling", "Moral Stories", "Moral Stories", "AI Influencer", "mostly horror games", "Disney Style Princess", "Minecraft", "Roblox",
 "Cheat Exposed"
 ]
 
@@ -83,12 +83,12 @@ if st.button("Fetch Data"):
             # Collect results
             for video, stat, channel in zip(videos, stats, channels):
                 title = video["snippet"].get("title", "N/A")
-                description = video["snippet"].get("description", "")[:300]
+                description = video["snippet"].get("description", "")[:500]
                 video_url = f"https://www.youtube.com/watch?v={video['id']['videoId']}"
                 views = int(stat["statistics"].get("viewCount", 0))
                 subs = int(channel["statistics"].get("subscriberCount", 0))
 
-                if subs < 3000:  # Only include channels with fewer than 3,000 subscribers
+                if subs < 5000:  # Only include channels with fewer than 3,000 subscribers
                     all_results.append({
                         "Title": title,
                         "Description": description,
